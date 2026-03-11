@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int bitwiseComplement(int n) {
+        if(n == 0) return 1;
+        string bin = "";
+        while (n > 0) {
+            int bit = n % 2;
+            bin.push_back('0' + bit);
+            n /= 2;
+        }
+        reverse(bin.begin(), bin.end());
+        int s = bin.length() - 1;
+        while (s >= 0){
+            if (bin[s] == '0') {
+                bin[s] = '1';
+            }else {
+                bin[s] = '0';
+            }
+            s--;
+        }
+        int nums = 0;
+        int base = 1;
+        for(int i = bin.length()-1; i >= 0; i--){
+            if(bin[i] == '1'){
+                nums += base;
+            }
+            base *= 2;
+        }return nums;
+    }
+};
