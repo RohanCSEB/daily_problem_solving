@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int heightChecker(vector<int>& h) {
+        vector<int> expected = h;
+        sort(expected.begin(), expected.end());
+
+        int n=h.size();
+        int x=0;
+        for(int i=0;i<n;i++){
+            if(h[i] != expected[i]){
+                x++;
+            }
+        }
+        return x;
+    }
+};
